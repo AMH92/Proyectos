@@ -19,13 +19,11 @@ public class Menu{
         bebidas[1] = "8. Café";
         bebidas[2] = "9. Té";
 
-        int comensales = 0; //total de comensales
-
         System.out.println("*****************Bienvenido*****************");
         System.out.println("********************************************");
         System.out.println("");
         System.out.print("Por favor, indica el total de comensales (máximo 10): ");
-        comensales = eleccion.nextInt();
+        int comensales = eleccion.nextInt();
         while(comensales > 10) { 
             System.out.print("La selección supera el máximo de personas por mesa, por favor intentalo de nuevo: ");
             comensales = eleccion.nextInt();
@@ -43,48 +41,47 @@ public class Menu{
                 System.out.println("4. Cancelar");
                 tM = eleccion.nextInt();
                 switch (tM) {
-                    case 1:
+                    case 1 -> {
                         System.out.println("Elegiste la opción " + tM);
                         System.out.println("");
-                        for (int j = 0; j < ordinario.length; j++) {
-                            System.out.println(ordinario[j]);                            
-                        }
+                    for (String ordinario1 : ordinario) {
+                        System.out.println(ordinario1);
+                    }
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
                         mesa[i] = eleccion.nextLine();
                         System.out.println("");
-                        break;
+                    }
 
-                    case 2:
+                    case 2 -> {
                         System.out.println("Elegiste la opción " + tM);
-                        for (int j = 0; j < vegetariano.length; j++) {
-                            System.out.println(vegetariano[j]);                            
-                        }
+                    for (String vegetariano1 : vegetariano) {
+                        System.out.println(vegetariano1);
+                    }
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
                         mesa[i] = eleccion.nextLine();
                         System.out.println("");
-                        break;
+                    }
 
-                    case 3:
+                    case 3 -> {
                         System.out.println("Elegiste la opción " + tM);
-                        for (int j = 0; j < bebidas.length; j++) {
-                            System.out.println(bebidas[j]);                            
-                        }
+                    for (String bebida : bebidas) {
+                        System.out.println(bebida);
+                    }
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
                         mesa[i] = eleccion.nextLine();
                         System.out.println("");
-                        break;
+                    }
 
-                    case 4:
-                        break;
+                    case 4 -> {
+                    }
 
-                    default:
-                        System.out.println("La selección no es válida");
+                    default -> System.out.println("La selección no es válida");
                 }
             } while (tM < 1 || tM > 4);
         }
