@@ -31,7 +31,8 @@ public class Menu{
             }
         
         int tM = 0; //indica que accion desea realizar
-        String mesa[] = new String[comensales]; //almacena los pedidos
+        String comida[] = new String[comensales]; //almacena los alimentos
+        String extra[] = new String[comensales];  //almacena los extras
         for (int i = 0; i < comensales; i++) {
             do { 
                 System.out.println("Pedido #" + (i + 1) + " por favor selecciona una opción:");
@@ -50,8 +51,20 @@ public class Menu{
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
-                        mesa[i] = eleccion.nextLine();
+                        comida[i] = eleccion.nextLine();
                         System.out.println("");
+                        System.out.println("Deseas agregar una bebida a tu pedido?");
+                        System.out.println("1. Sí/2. No");
+                        int add = eleccion.nextInt();
+                        if (add == 1){
+                            System.out.println("Estas son las bebidas disponibles:");
+                            for (String bebida : bebidas) {
+                                System.out.println(bebida);
+                            }
+                            System.out.println("Por favor selecciona una bebida:");
+                            eleccion.nextLine();
+                            extra[i] = eleccion.nextLine();
+                        }
                     }
 
                     case 2 -> {
@@ -62,8 +75,20 @@ public class Menu{
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
-                        mesa[i] = eleccion.nextLine();
+                        comida[i] = eleccion.nextLine();
                         System.out.println("");
+                        System.out.println("Deseas agregar una bebida a tu pedido?");
+                        System.out.println("1. Sí/2. No");
+                        int add = eleccion.nextInt();
+                        if (add == 1){
+                            System.out.println("Estas son las bebidas disponibles:");
+                            for (String bebida : bebidas) {
+                                System.out.println(bebida);
+                            }
+                            System.out.println("Por favor selecciona una bebida:");
+                            eleccion.nextLine();
+                            extra[i] = eleccion.nextLine();
+                        }
                     }
 
                     case 3 -> {
@@ -74,8 +99,22 @@ public class Menu{
                         System.out.println("");
                         System.out.print("Elige la opción de tu preferencia: ");
                         eleccion.nextLine();
-                        mesa[i] = eleccion.nextLine();
+                        extra[i] = eleccion.nextLine();
                         System.out.println("");
+                        System.out.println("Deseas vovler a revisar los alimentos disponibles?");
+                        System.out.println("1. Sí/2. No");
+                        int add = eleccion.nextInt();
+                        if (add == 1){
+                            for (String ordinario1 : ordinario) {
+                                System.out.println(ordinario1);
+                            }
+                            for (String vegetariano1 : vegetariano) {
+                                System.out.println(vegetariano1);
+                            }
+                            System.out.println("Por favor selecciona el platillo de tu preferencia:");
+                            eleccion.nextLine();
+                            comida[i] = eleccion.nextLine();
+                        }
                     }
 
                     case 4 -> {
@@ -88,7 +127,7 @@ public class Menu{
 
         System.out.println("Este es el resumen de tu pedido:");
         for (int i = 0; i < comensales; i++) {
-            System.out.println("Pedido #" + (i + 1) + ": " + mesa[i]);
+            System.out.println("Pedido #" + (i + 1) + ": " + comida[i] + " y " + extra[i]);
         }
         
     }
